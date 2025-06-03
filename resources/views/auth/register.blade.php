@@ -16,7 +16,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Mono - Responsive Admin & Dashboard Template</title>
+        <title>Register</title>
 
         <!-- GOOGLE FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
@@ -28,10 +28,6 @@
 
         <!-- MONO CSS -->
         <link id="main-css-href" rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}" />
-
-
-
-
         <!-- FAVICON -->
         <link href="{{ asset('assets/theme/images/favicon.png') }}" rel="shortcut icon" />
 
@@ -65,7 +61,7 @@
                         <div class="card-body px-5 pb-5 pt-0">
                             <h4 class="text-dark text-center mb-5">Sign Up</h4>
                             <x-validation-errors class="mb-4" />
-                            <form method="post" action="{{route('register')}}">
+                            <form method="post" action="{{ route('register') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-12 mb-4">
@@ -81,8 +77,9 @@
                                             id="password" placeholder="Password">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <input type="password" name="password_confirmation" class="form-control input-lg"
-                                            id="password_confirmation" placeholder="Confirm Password">
+                                        <input type="password" name="password_confirmation"
+                                            class="form-control input-lg" id="password_confirmation"
+                                            placeholder="Confirm Password">
                                     </div>
                                     <div class="col-md-12">
                                         {{-- <div class="d-flex justify-content-between mb-3">
@@ -98,7 +95,7 @@
                                                 Up</button>
                                         </div>
                                         <p class="text-center">Already have an account?
-                                            <a class="text-blue" href="{{route('login')}}">Sign in</a>
+                                            <a class="text-blue" href="{{ route('login') }}">Sign in</a>
                                         </p>
                                     </div>
                                 </div>
