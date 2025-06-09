@@ -39,21 +39,13 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <button type="submit" class="btn btn-primary"> {{ __('buttons.update') }}</button>
-=======
 
                     <button type="submit" class="btn btn-primary">Submit</button>
->>>>>>> 599ec71143fb8d75b380f318177492c34c3c4bd5
                 </form>
             </div>
 
             <div class="modal-footer">
-<<<<<<< HEAD
-                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('buttons.cancel') }}</button>
-=======
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
->>>>>>> 599ec71143fb8d75b380f318177492c34c3c4bd5
             </div>
         </div>
     </div>
