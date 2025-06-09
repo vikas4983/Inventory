@@ -15,7 +15,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <label for="name">{{ $title }} Name</label>
+                        <label for="name">{{ __('labels.category_name') }} </label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                             name="name" placeholder="Enter Name" value="{{ old('name', $objectData->name ?? '') }}"
                             required>
@@ -40,12 +40,12 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" title="{{__('titles.update')}}" class="btn btn-primary">{{__('buttons.update')}}</button>
                 </form>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" title="{{__('titles.cancel')}}" data-dismiss="modal">{{__('buttons.cancel')}}</button>
             </div>
         </div>
     </div>
