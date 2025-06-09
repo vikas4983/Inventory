@@ -12,7 +12,7 @@
                     <form action="{{ route('categories.store') }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="name" class="font-weight-medium">Category Name</label>
+                            <label for="name" class="font-weight-medium">{{__('labels.category_name')}}</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                 name="name" placeholder="Enter Name" value="{{ old('name') }}" required>
                             @error('name')
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">SUBMIT</button>
+                        <button type="submit" title="{{ __('titles.create') }}" class="btn btn-primary">{{ __('buttons.create') }}</button>
                     </form>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <h2 class="mb-0">
                             <button class="btn btn-link collapsed w-100 text-left" type="button" data-toggle="collapse"
                                 data-target="#categoryCollapse" aria-expanded="false" aria-controls="categoryCollapse">
-                                <strong>Category List</strong>
+                                <strong>{{__('labels.category_list')}}</strong>
                             </button>
                         </h2>
                     </div>
@@ -73,7 +73,7 @@
                                                 <td>{{ $index + 1 }}</td>
                                                 <td>{{ $category->name }}</td>
                                                 <td> <x-buttons.switch-button :url="route('categories.update', $category->id)" :method="'PATCH'"
-                                                    :objectData="$category->is_active" /></td>
+                                                        :objectData="$category->is_active" /></td>
                                                 <td>
                                                     <div style="display: flex; flex-wrap: nowrap; gap: 6px; mb-2">
                                                         <x-buttons.action-button :objectData="$category" :url="route('categories.update', $category->id)"

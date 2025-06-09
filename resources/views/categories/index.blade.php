@@ -3,7 +3,7 @@
 @section('content')
     @include('alerts.alert')
     <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :current-route="['name' => 'Categories', 'url' => null]" />
-    <a href="{{ route('categories.create') }}" class="btn btn-primary">Create</a>
+    <a href="{{ route('categories.create') }}" title="{{ __('titles.add_category') }}" class="btn btn-secondary">{{ __('buttons.add_new') }}</a>
     <table id="productsTable" class="table table-hover table-product" style="width:100%">
         <thead>
             <tr>
