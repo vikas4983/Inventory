@@ -15,7 +15,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <label for="name">{{ __('labels.category_name') }} </label>
+                        <label for="name">{{ __('labels.brand_name') }} </label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                             name="name" placeholder="Enter Name" value="{{ old('name', $objectData->name ?? '') }}"
                             required>
