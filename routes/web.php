@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Inventory\CategoryController;
+use App\Http\Controllers\inventory\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,5 +17,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('categories', CategoryController::class);
+    Route::resource('products', ProductController::class);
     Route::post('delete', [CategoryController::class, 'destroy'])->name('delete');
 });
