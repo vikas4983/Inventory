@@ -5,6 +5,8 @@ return [
     'edit' => 'Edit',
     'delete' => 'Delete',
     'create' => 'Create Category',
+    'update' => 'Update',
+    'cancel' => 'Cancel',
 ];
 
 ?>

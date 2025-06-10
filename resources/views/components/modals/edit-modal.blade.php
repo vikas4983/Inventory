@@ -40,12 +40,12 @@
                         </div>
                     </div>
 
-                    <button type="submit" title="{{__('titles.update')}}" class="btn btn-primary">{{__('buttons.update')}}</button>
+                    <button type="submit" title="{{ __('titles.update') }}" class="btn btn-primary">{{__('buttons.update')}}</button>
                 </form>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" title="{{__('titles.cancel')}}" data-dismiss="modal">{{__('buttons.cancel')}}</button>
+                <button type="button" class="btn btn-danger" title="{{ __('titles.cancel') }}" data-dismiss="modal">{{__('buttons.cancel')}}</button>
             </div>
         </div>
     </div>
