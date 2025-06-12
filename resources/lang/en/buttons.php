@@ -1,10 +1,11 @@
 <?php 
 return [
     'create' => 'Create',
-    'add_new' => 'Add New Category',
     'update' => 'Update',
     'delete' => 'Delete',
     'cancel' => 'Cancel',
+      'add_new' => 'Add New Category',
+      'add_new_product' => 'Add New Product',
 
 ];
 

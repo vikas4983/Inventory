@@ -16,5 +16,10 @@ class Product extends Model
         'cost_price',
         'selling_price',
         'description',
+        'is_active',
     ];
+    public function scopeActive($query)
+    {
+        return $query;
+    }
 }
