@@ -110,6 +110,9 @@
                                 <span class="nav-text">Calendar</span>
                             </a>
                         </li> --}}
+                        @php
+                            $models = ['Category', 'Brand'];
+                        @endphp
                         <li class="has-sub">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#category" aria-expanded="false" aria-controls="category">
@@ -126,6 +129,29 @@
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('categories.create') }}">
+                                            <span class="nav-text">Create</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                data-target="#brand" aria-expanded="false" aria-controls="brand">
+                                <i class="mdi mdi-shape"></i>
+                                <span class="nav-text">Brand</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="brand" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('brands.index') }}">
+                                            <span class="nav-text">List</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('brands.create') }}">
                                             <span class="nav-text">Create</span>
 
                                         </a>
@@ -588,8 +614,11 @@
                     <button id="sidebar-toggler" class="sidebar-toggle">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-
-                    <span class="page-title">dashboard</span>
+                    @php
+                        $segment = request()->segment(1); 
+                        $title = Str::singular($segment);
+                    @endphp
+                    <span class="page-title">{{$title ?? ''}}</span>
 
                     <div class="navbar-right ">
 
@@ -1122,7 +1151,7 @@
     <script src="{{ asset('assets/theme/js/chart.js') }}"></script>
     <script src="{{ asset('assets/theme/js/map.js') }}"></script>
     <script src="{{ asset('assets/theme/js/custom.js') }}"></script>
-   <script src="{{ asset('assets/theme/js/custom-js/action-button.js') }}"></script>
+    <script src="{{ asset('assets/theme/js/custom-js/action-button.js') }}"></script>
 
     <script>
         const logout = document.querySelector('#logout');
@@ -1145,7 +1174,7 @@
             });
         }
     </script>
-    
+
 </body>
 
 </html>

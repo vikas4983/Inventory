@@ -1,5 +1,6 @@
 <?php
 return [
+<<<<<<< HEAD
     //Coumn
     'action' => 'Action',
     'status' => 'Status',
@@ -15,4 +16,15 @@ return [
     'product_sell' => 'Sell Price',
     'product_description' => 'Description',
     'product_list' => 'Products List',
+=======
+    //Comoun
+    'status' => 'Status',
+    'action' => 'Action',
+    //Category
+    'category_name' => 'Category Name',
+    'category_list' => 'Categories List',
+    //Brand
+    'brand_name' => 'Brand Name',
+    'brand_list' => 'Brands List',
+>>>>>>> 380ecaa4523a84112fff0746f8f8ab6de21df1b9
 ];
