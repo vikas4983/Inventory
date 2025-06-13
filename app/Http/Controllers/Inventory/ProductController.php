@@ -36,7 +36,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-
+       
         $validatedData = $request->validated();
         $validatedData['sku'] = 'PRD-' . strtoupper(Str::random(8));
         Product::create($validatedData);
@@ -54,9 +54,16 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Product $product, StaticDataService $staticData)
     {
-        //
+        $objectdata = Product::findOrFail($product->id);
+        $data = $staticData->staticData();
+        $editForm = view('forms.editForm', compact('objectdata', 'data'))->render();
+
+        return response()->json([
+            'action' => 'edit',
+            'editForm' => $editForm,
+        ]);
     }
 
     /**
@@ -64,6 +71,7 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
+
         $validatedData = $request->validated();
         if (isset($validatedData['is_active']) && count($validatedData) === 1) {
             $Product = Product::where('id', $product->id)->first();

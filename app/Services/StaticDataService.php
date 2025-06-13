@@ -12,11 +12,11 @@ class StaticDataService
     {
         $models = [
             'categories' => Category::class,
+            'brands' => Brand::class,
         ];
         $data = [];
-
         foreach ($models as $key => $model) {
-            $data[$key] = $model::query()->where('is_active', 1)->get();
+            $data[$key] =  $model::query()->get();
         }
         return $data;
     }

@@ -1,6 +1,17 @@
 @extends('layouts.main-app')
 @section('title', 'Create Product')
 @section('content')
+<style>
+        #productsTable.table-hover tbody tr:hover {
+            background-color: #F2F2F2 !important;
+        }
+
+        #productsTable.table-hover tbody tr:hover td {
+            color: #000000 !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+        }
+    </style>
     <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :parent-route="['name' => 'Products', 'url' => route('products.index')]" :current-route="['name' => 'Create', 'url' => null]" />
 
     <div class="row">
@@ -11,7 +22,7 @@
                     <form action="{{ route('products.store') }}" method="post">
                         @csrf
                         <div class="row">
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-4">
                                 <label for="name" class="font-weight-medium">{{ __('labels.product_name') }}</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     id="name" name="name" placeholder="Enter Name" value="{{ old('name') }}"
@@ -22,7 +33,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-4">
                                 <label for="stock" class="font-weight-medium">{{ __('labels.stock') }}</label>
                                 <input type="number" class="form-control @error('stock') is-invalid @enderror"
                                     id="stock" name="stock" placeholder="Enter Number" value="{{ old('stock') }}"
@@ -33,11 +44,39 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-4">
+                                <label for="cost_price" class="font-weight-medium">{{ __('labels.product_buy') }}</label>
+                                <input type="number" step="0.01"
+                                    class="form-control @error('cost_price') is-invalid @enderror" id="cost_price"
+                                    name="cost_price" placeholder="Enter Number" value="{{ old('cost_price') }}" required>
+                                @error('cost_price')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-lg-4">
+                                <label for="brand_id">{{ __('labels.product_brand') }}</label>
+                                <select class="form-control" name="brand_id" id="brand_id" required>
+                                    <option value="">Select Brand</option>
+                                    @foreach ($data['brands'] as $brand)
+                                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                    @endforeach
+                                    
+                                </select>
+                                @error('brand_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-lg-4">
                                 <label for="category_id">{{ __('labels.product_category') }}</label>
-                                <select class="form-control" name="category_id" id="category_id">
+                                <select class="form-control" name="category_id" id="category_id" required>
+                                     <option value="">Select Category</option>
                                     @foreach ($data['categories'] as $category)
-                                        <option value="{{$category->id}}">{{$category->name ?? ''}}</option>
+                                        <option value="{{ $category->id }}">{{ $category->name ?? '' }}</option>
                                     @endforeach
                                 </select>
                                 @error('category_id')
@@ -46,82 +85,49 @@
                                     </div>
                                 @enderror
                             </div>
-                     
-                            <div class="form-group col-lg-6">
-                                <label for="brand_id">{{ __('labels.product_brand') }}</label>
-                                <select class="form-control" name="brand_id" id="brand_id">
-                                    <option value="1">1Example select</option>
-                                    <option value="1">2Example select</option>
-                                    <option value="1">3Example select</option>
-                                    <option value="1">4Example select</option>
-                                    <option value="1">5Example select</option>
-                                </select>
-                                @error('brand_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                                    
-                            <div class="form-group col-lg-6">
-                                <label for="cost_price" class="font-weight-medium">{{ __('labels.product_buy') }}</label>
-                                <input type="number" step="0.01" class="form-control @error('cost_price') is-invalid @enderror"
-                                    id="cost_price" name="cost_price" placeholder="Enter Number"
-                                    value="{{ old('cost_price') }}" required>
-                                @error('cost_price')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group col-lg-6">
+
+                            <div class="form-group col-lg-4">
                                 <label for="selling_price"
                                     class="font-weight-medium">{{ __('labels.product_sell') }}</label>
-                                <input type="number" step="0.01" class="form-control @error('selling_price') is-invalid @enderror"
-                                    id="selling_price" name="selling_price" placeholder="Enter Number"
-                                    value="{{ old('selling_price') }}" required>
+                                <input type="number" step="0.01"
+                                    class="form-control @error('selling_price') is-invalid @enderror" id="selling_price"
+                                    name="selling_price" placeholder="Enter Number" value="{{ old('selling_price') }}"
+                                    required>
                                 @error('selling_price')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-8">
                                 <label for="description"
                                     class="font-weight-medium">{{ __('labels.product_description') }}</label>
-                                <textarea class="form-control @error('description') is-invalid @enderror" id="description" style="width: 100%; height: 90px;"
-                                    name="description" placeholder="Enter Description" value="{{ old('description') }}" required> </textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" id="description"
+                                    style="width: 100%; height: 90px;" name="description" placeholder="Enter Description"
+                                    value="{{ old('description') }}" required> </textarea>
                                 @error('description')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group col-lg-6">
-                                <div class="form-group mt-5">
-                                    <div class="d-flex align-items-center">
-                                        <label class="font-weight-medium mb-0 mr-3">Status</label>
-
-                                        <div class="form-check form-check-inline mr-3">
-                                            <input class="form-check-input" type="radio" name="is_active"
-                                                id="statusActive" value="1" checked>
-                                            <label class="form-check-label" for="statusActive">Active</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="is_active"
-                                                id="statusInactive" value="0">
-                                            <label class="form-check-label" for="statusInactive">Inactive</label>
-                                        </div>
-                                    </div>
+                            <div class="form-group col-lg-4  d-flex justify-content-between align-items-right">
+                                <label for="is_active" class="font-weight-medium mb-0">{{ __('labels.status') }}</label>
+                                <div class="switch-container">
+                                    <label class="switch switch-text switch-primary switch-pill form-control-label">
+                                        <input type="checkbox" name="is_active" id="is_active"
+                                            class="switch-input form-check-input" value="1"
+                                            {{ old('is_active', $objectData->is_active ?? 0) == 1 ? 'checked' : '' }}>
+                                        <span class="switch-label" data-on="ON" data-off="OFF"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
                                 </div>
                                 @error('is_active')
-                                    <div class="invalid-feedback">
+                                    <div class="invalid-feedback d-block">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-
                         </div>
                         <button type="submit" title="{{ __('titles.add_product') }}"
                             class="btn btn-primary">{{ __('buttons.create') }}</button>
@@ -144,40 +150,48 @@
                         data-parent="#productAccordion">
                         <div class="card-body p-0">
                             <table id="productsTable" class="table table-hover table-product" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>{{ __('labels.product_name') }}</th>
-                                        <th>{{ __('labels.status') }}</th>
-                                        <th>{{ __('labels.action') }}</th>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ __('labels.action') }}</th>
+                <th>{{ __('labels.status') }}</th>
+                <th>{{ __('labels.product_name') }}</th>
+                <th>{{ __('labels.product_buy') }}</th>
+                <th>{{ __('labels.product_sell') }}</th>
+                <th>{{ __('labels.stock') }}</th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (count($products) > 0)
-                                        @foreach ($products as $index => $product)
-                                            <tr>
-                                                <td>{{ $index + 1 ?? '' }}</td>
-                                                <td>{{ Str::limit($product->name, 15) ?? '' }}</td>
-                                                <td> <x-buttons.switch-button :url="route('products.update', $product->id)" :method="'PATCH'"
-                                                        :objectData="$product->is_active" /></td>
-                                                <td>
-                                                    <div style="display: flex; flex-wrap: nowrap; gap: 6px; mb-2">
-                                                        <x-buttons.action-button :objectData="$product" :url="route('products.update', $product->id)"
-                                                            :title="'Product'" />
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        <tr>
-                                            <td colspan="4" class="text-center">
-                                                <h5 style="color:red">No Product Available</h5>
-                                            </td>
-                                        </tr>
-                                    @endif
-                                </tbody>
-                            </table>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($products as $index => $product)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>
+                        <div style="display: flex; flex-wrap: nowrap; gap: 6px;  ">
+                            <x-buttons.edit-button :objectData="$product" :url="route('products.edit', $product->id)" :title="'Product'"
+                                :method="'GET'" />
+                            <x-buttons.delete-button :objectData="$product" :url="route('products.destroy', $product->id)" :title="'Product'"
+                                :method="'GET'" />
+                        </div>
+                    </td>
+                    <td> <x-buttons.switch-button :url="route('products.update', $product->id)" :method="'PATCH'" :objectData="$product->is_active" /></button>
+                    </td>
+                    <td>{{ Str::limit($product->name, 15) ?? '' }}</td>
+                    <td>{{ Str::limit($product->cost_price, 15) ?? '' }}</td>
+                    <td>{{ Str::limit($product->selling_price, 15) ?? '' }}</td>
+                    <td>{{ Str::limit($product->stock, 15) ?? '' }}</td>
+
+
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="4" class="text-center">
+                        <h5 style="color:red">No Product Available</h5>
+                    </td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
                         </div>
                     </div>
                 </div>

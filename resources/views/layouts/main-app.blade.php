@@ -159,6 +159,29 @@
                                 </div>
                             </ul>
                         </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                data-target="#product" aria-expanded="false" aria-controls="product">
+                                <i class="mdi mdi-shape"></i>
+                                <span class="nav-text">Product</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="product" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('products.index') }}">
+                                            <span class="nav-text">List</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('products.create') }}">
+                                            <span class="nav-text">Create</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
                         <li class="section-title">
                             UI Elements
                         </li>
@@ -615,10 +638,10 @@
                         <span class="sr-only">Toggle navigation</span>
                     </button>
                     @php
-                        $segment = request()->segment(1); 
+                        $segment = request()->segment(1);
                         $title = Str::singular($segment);
                     @endphp
-                    <span class="page-title">{{$title ?? ''}}</span>
+                    <span class="page-title">{{ $title ?? '' }}</span>
 
                     <div class="navbar-right ">
 
@@ -1173,6 +1196,24 @@
                 });
             });
         }
+    </script>
+    <script>
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: true,
+            progressBar: true,
+            positionClass: 'toast-bottom-center',
+            preventDuplicates: false,
+            showDuration: '300',
+            hideDuration: '1000',
+            timeOut: '5000',
+            extendedTimeOut: '1000',
+            showEasing: 'swing',
+            hideEasing: 'linear',
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut'
+        };
     </script>
 
 </body>

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ActionButton extends Component
+class DeleteButton extends Component
 {
     /**
      * Create a new component instance.
@@ -15,7 +15,7 @@ class ActionButton extends Component
     public $url;
     public $title;
     public $method = null;
-    public function __construct($objectData,$url,$title, $method)
+    public function __construct($objectData, $url, $title, $method)
     {
         $this->objectData = $objectData;
         $this->url = $url;
@@ -28,6 +28,6 @@ class ActionButton extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.buttons.action-button');
+        return view('components.buttons.delete-button');
     }
 }
