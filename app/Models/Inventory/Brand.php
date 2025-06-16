@@ -17,18 +17,5 @@ class Brand extends Model
     {
         return $query->where('id', $id);
     }
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::saved(function ($model) {
-            Cache::forget('static_data_categories');
-            // Cache::forget('static_data_brands'); for Brand model
-        });
-
-        static::deleted(function ($model) {
-            Cache::forget('static_data_categories');
-            // Cache::forget('static_data_brands'); for Brand model
-        });
-    }
+    
 }

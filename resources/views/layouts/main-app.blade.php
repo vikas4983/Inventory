@@ -41,6 +41,17 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
     <script src="{{ asset('assets/theme/plugins/nprogress/nprogress.js') }}"></script>
+     <style>
+        #productsTable.table-hover tbody tr:hover {
+            background-color: #F2F2F2 !important;
+        }
+
+        #productsTable.table-hover tbody tr:hover td {
+            color: #000000 !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+        }
+    </style>
 </head>
 
 <body class="navbar-fixed sidebar-fixed" id="body">
@@ -139,7 +150,7 @@
                         <li class="has-sub">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#brand" aria-expanded="false" aria-controls="brand">
-                                <i class="mdi mdi-shape"></i>
+                                <i class="mdi mdi-label"></i>
                                 <span class="nav-text">Brand</span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="brand" data-parent="#sidebar-menu">
@@ -162,7 +173,7 @@
                         <li class="has-sub">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#product" aria-expanded="false" aria-controls="product">
-                                <i class="mdi mdi-shape"></i>
+                                <i class="mdi mdi-palette"></i>
                                 <span class="nav-text">Product</span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="product" data-parent="#sidebar-menu">

@@ -23,7 +23,10 @@
                     </td>
                     <td>
                         <div style="display: flex; flex-wrap: nowrap; gap: 6px; margin-bottom: 0.5rem;">
-                            <x-buttons.action-button :objectData="$category" :url="route('categories.destroy', $category->id)" :title="'Category'" />
+                            <x-buttons.edit-button :objectData="$category" :url="route('categories.edit', $category->id)" :title="'Category'"
+                                :method="'GET'" />
+                            <x-buttons.delete-button :objectData="$category" :url="route('categories.destroy', $category->id)" :title="'Category'"
+                                :method="'GET'" />
                         </div>
                     </td>
                 </tr>

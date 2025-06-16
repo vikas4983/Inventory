@@ -9,6 +9,9 @@
             <div class="card shadow">
                 <div class="card-body">
                     @include('alerts.alert')
+                     <div class="text-center">
+                                <h3>{{__('labels.brand_title')}}</h3>
+                            </div>
                     <form action="{{ route('brands.store') }}" method="post">
                         @csrf
                         <div class="form-group">
@@ -65,7 +68,7 @@
                                         <th>{{ __('labels.brand_name') }}</th>
                                         <th>{{ __('labels.status') }}</th>
                                         <th>{{ __('labels.action') }}</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,13 +76,15 @@
                                         @foreach ($brands as $index => $brand)
                                             <tr>
                                                 <td>{{ $index + 1 ?? '' }}</td>
-                                               <td>{{ Str::limit($brand->name, 15) }}</td>
+                                                <td>{{ Str::limit($brand->name, 15) }}</td>
                                                 <td> <x-buttons.switch-button :url="route('brands.update', $brand->id)" :method="'PATCH'"
                                                         :objectData="$brand->is_active" /></td>
                                                 <td>
                                                     <div style="display: flex; flex-wrap: nowrap; gap: 6px; mb-2">
-                                                        <x-buttons.action-button :objectData="$brand" :url="route('brands.update', $brand->id)"
-                                                            :title="'Brand'" />
+                                                        <x-buttons.edit-button :objectData="$brand" :url="route('brands.edit', $brand->id)"
+                                                            :title="'Brand'" :method="'GET'" />
+                                                        <x-buttons.delete-button :objectData="$brand" :url="route('brands.destroy', $brand->id)"
+                                                            :title="'Brand'" :method="'DELETE'" />
                                                     </div>
                                                 </td>
                                             </tr>

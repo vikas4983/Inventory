@@ -15,10 +15,13 @@
     <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :parent-route="['name' => 'Products', 'url' => route('products.index')]" :current-route="['name' => 'Create', 'url' => null]" />
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="card shadow">
                 <div class="card-body">
                     @include('alerts.alert')
+                     <div class="text-center">
+                                <h3>{{__('labels.product_title')}}</h3>
+                            </div>
                     <form action="{{ route('products.store') }}" method="post">
                         @csrf
                         <div class="row">
@@ -135,7 +138,7 @@
                 </div>
             </div>
         </div>
-        <div id="product-list" class="col-lg-6 mt-lg-0 mt-4">
+        {{-- <div id="product-list" class="col-lg-6 mt-lg-0 mt-4">
             <div class="accordion" id="productAccordion">
                 <div class="card shadow">
                     <div class="card-header" id="productHeading">
@@ -196,7 +199,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <script>
             function handleResponsiveLayout() {
                 console.log(window.innerWidth <= 768 ? "Mobile view" : "Desktop view");

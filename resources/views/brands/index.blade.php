@@ -1,6 +1,7 @@
 @extends('layouts.main-app')
 @section('title', 'Brand List')
 @section('content')
+   
     @include('alerts.alert')
     <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :current-route="['name' => 'Brands', 'url' => null]" />
     <a href="{{ route('brands.create') }}" title="{{ __('titles.add_brand') }}"
@@ -24,7 +25,10 @@
                     </td>
                     <td>
                         <div style="display: flex; flex-wrap: nowrap; gap: 6px; margin-bottom: 0.5rem;">
-                            <x-buttons.action-button :objectData="$brand" :url="route('brands.destroy', $brand->id)" :title="'Brand'" />
+                            <x-buttons.edit-button :objectData="$brand" :url="route('brands.edit', $brand->id)" :title="'Brand'"
+                                :method="'GET'" />
+                            <x-buttons.delete-button :objectData="$brand" :url="route('brands.destroy', $brand->id)" :title="'Brand'"
+                                :method="'GET'" />
                         </div>
                     </td>
                 </tr>
