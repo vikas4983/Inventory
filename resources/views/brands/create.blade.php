@@ -82,7 +82,7 @@
                                                 <td>
                                                     <div style="display: flex; flex-wrap: nowrap; gap: 6px; mb-2">
                                                         <x-buttons.edit-button :objectData="$brand" :url="route('brands.edit', $brand->id)"
-                                                            :title="'Brand'" :method="'GET'" />
+                                                            :title="'Brand'" :method="'GET'" :modalSize="__('labels.brand_edit_modal')" />
                                                         <x-buttons.delete-button :objectData="$brand" :url="route('brands.destroy', $brand->id)"
                                                             :title="'Brand'" :method="'DELETE'" />
                                                     </div>

@@ -28,8 +28,7 @@ class BrandRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'regex:/^[\pL\s]+$/u',
-                Rule::unique('brands')->ignore($this->brand ?? $this->id)
+               Rule::unique('brands')->ignore($this->brand ?? $this->id)
             ],
             'is_active' => ['sometimes', 'integer', 'in:0,1'],
         ];

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Inventory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\CategoryRequest;
 use App\Models\Inventory\Category;
+use App\Services\StaticDataService;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -48,9 +49,15 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Category $category, StaticDataService $staticData)
     {
-        //
+        $objectdata = Category::findOrFail($category->id);
+        $data = $staticData->staticData();
+        $editForm = view('forms.edit.category', compact('objectdata', 'data'))->render();
+        return response()->json([
+            'action' => 'edit',
+            'editForm' => $editForm,
+        ]);
     }
 
     /**
@@ -59,7 +66,8 @@ class CategoryController extends Controller
     public function update(CategoryRequest  $request, $id)
     {
         $validatedData = $request->validated();
-        if (isset($validatedData['is_active']) && isset($validatedData['name'])) {
+        $category = Category::findOrFail($id);
+        if (isset($validatedData['name'])) {
             $category = Category::where('id', $id)->first();
             $category->update($validatedData);
             return redirect()->route('categories.index')->with('success', 'Category updated successfully!');

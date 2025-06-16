@@ -36,7 +36,7 @@
                     <td>
                         <div style="display: flex; flex-wrap: nowrap; gap: 6px;  ">
                             <x-buttons.edit-button :objectData="$product" :url="route('products.edit', $product->id)" :title="'Product'"
-                                :method="'GET'" />
+                                :method="'GET'" :modalSize="__('labels.product_edit_modal')" />
                             <x-buttons.delete-button :objectData="$product" :url="route('products.destroy', $product->id)" :title="'Product'"
                                 :method="'GET'" />
                         </div>

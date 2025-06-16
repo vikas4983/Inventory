@@ -7,6 +7,4 @@
         <i class="mdi mdi-pencil"></i>
     </button>
 </form>
-
-
-<x-modals.edit-modal :objectData="$objectData" :url="$url" :title="$title" />
+<x-modals.edit-modal :objectData="$objectData" :url="$url" :title="$title" :modalSize="$modalSize" />

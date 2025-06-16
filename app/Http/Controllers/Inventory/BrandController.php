@@ -5,6 +5,7 @@ namespace App\Http\Controllers\inventory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\inventory\BrandRequest;
 use App\Models\inventory\Brand;
+use App\Services\StaticDataService;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -45,9 +46,15 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit(Brand $brand , StaticDataService $staticData )
     {
-        //
+        $objectdata = Brand::findOrFail($brand->id);
+        $data = $staticData->staticData();
+        $editForm = view('forms.edit.brand', compact('objectdata', 'data'))->render();
+        return response()->json([
+            'action' => 'edit',
+            'editForm' => $editForm,
+        ]);
     }
 
     /**
@@ -56,7 +63,8 @@ class BrandController extends Controller
     public function update(BrandRequest $request, Brand $brand)
     {
         $validatedData = $request->validated();
-        if (isset($validatedData['is_active']) && isset($validatedData['name'])) {
+        dump($validatedData);
+        if ( isset($validatedData['name'])) {
             $brand = Brand::where('id', $brand->id)->first();
             $brand->update($validatedData);
             return redirect()->route('brands.index')->with('success', 'Brand updated successfully!');

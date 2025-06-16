@@ -1,7 +1,7 @@
 @extends('layouts.main-app')
 @section('title', 'Create Product')
 @section('content')
-<style>
+    <style>
         #productsTable.table-hover tbody tr:hover {
             background-color: #F2F2F2 !important;
         }
@@ -19,17 +19,17 @@
             <div class="card shadow">
                 <div class="card-body">
                     @include('alerts.alert')
-                     <div class="text-center">
-                                <h3>{{__('labels.product_title')}}</h3>
-                            </div>
+                    <div class="text-center">
+                        <h3>{{ __('labels.product_title') }}</h3>
+                    </div>
                     <form action="{{ route('products.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label for="name" class="font-weight-medium">{{ __('labels.product_name') }}</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    id="name" name="name" placeholder="Enter Name" value="{{ old('name') }}"
-                                    required>
+                                    id="name" name="name" placeholder="{{ __('labels.product_name_placeholder') }}"
+                                    value="{{ old('name') }}" required>
                                 @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -39,8 +39,8 @@
                             <div class="form-group col-lg-4">
                                 <label for="stock" class="font-weight-medium">{{ __('labels.stock') }}</label>
                                 <input type="number" class="form-control @error('stock') is-invalid @enderror"
-                                    id="stock" name="stock" placeholder="Enter Number" value="{{ old('stock') }}"
-                                    required>
+                                    id="stock" name="stock" placeholder="{{ __('labels.product_stock_placeholder') }}"
+                                    value="{{ old('stock') }}" required>
                                 @error('stock')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -51,7 +51,8 @@
                                 <label for="cost_price" class="font-weight-medium">{{ __('labels.product_buy') }}</label>
                                 <input type="number" step="0.01"
                                     class="form-control @error('cost_price') is-invalid @enderror" id="cost_price"
-                                    name="cost_price" placeholder="Enter Number" value="{{ old('cost_price') }}" required>
+                                    name="cost_price" placeholder="{{ __('labels.product_buy_placeholder') }}"
+                                    value="{{ old('cost_price') }}" required>
                                 @error('cost_price')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -66,7 +67,7 @@
                                     @foreach ($data['brands'] as $brand)
                                         <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                     @endforeach
-                                    
+
                                 </select>
                                 @error('brand_id')
                                     <div class="invalid-feedback">
@@ -77,7 +78,7 @@
                             <div class="form-group col-lg-4">
                                 <label for="category_id">{{ __('labels.product_category') }}</label>
                                 <select class="form-control" name="category_id" id="category_id" required>
-                                     <option value="">Select Category</option>
+                                    <option value="">Select Category</option>
                                     @foreach ($data['categories'] as $category)
                                         <option value="{{ $category->id }}">{{ $category->name ?? '' }}</option>
                                     @endforeach
@@ -94,8 +95,8 @@
                                     class="font-weight-medium">{{ __('labels.product_sell') }}</label>
                                 <input type="number" step="0.01"
                                     class="form-control @error('selling_price') is-invalid @enderror" id="selling_price"
-                                    name="selling_price" placeholder="Enter Number" value="{{ old('selling_price') }}"
-                                    required>
+                                    name="selling_price" placeholder="{{ __('labels.product_sell_placeholder') }}"
+                                    value="{{ old('selling_price') }}" required>
                                 @error('selling_price')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -106,7 +107,7 @@
                                 <label for="description"
                                     class="font-weight-medium">{{ __('labels.product_description') }}</label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" id="description"
-                                    style="width: 100%; height: 90px;" name="description" placeholder="Enter Description"
+                                    style="width: 100%; height: 90px;" name="description" placeholder="Enter Product Descriptions"
                                     value="{{ old('description') }}" required> </textarea>
                                 @error('description')
                                     <div class="invalid-feedback">

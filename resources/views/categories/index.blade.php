@@ -1,6 +1,7 @@
 @extends('layouts.main-app')
 @section('title', 'Category List')
 @section('content')
+
     @include('alerts.alert')
     <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :current-route="['name' => 'Categories', 'url' => null]" />
     <a href="{{ route('categories.create') }}" title="{{ __('titles.add_category') }}" class="btn btn-secondary">{{ __('buttons.add_new') }}</a>
@@ -14,6 +15,7 @@
             </tr>
         </thead>
         <tbody>
+
             @forelse ($categories as $index => $category)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -24,7 +26,7 @@
                     <td>
                         <div style="display: flex; flex-wrap: nowrap; gap: 6px; margin-bottom: 0.5rem;">
                             <x-buttons.edit-button :objectData="$category" :url="route('categories.edit', $category->id)" :title="'Category'"
-                                :method="'GET'" />
+                                :method="'GET'" :modalSize="__('labels.category_edit_modal')" />
                             <x-buttons.delete-button :objectData="$category" :url="route('categories.destroy', $category->id)" :title="'Category'"
                                 :method="'GET'" />
                         </div>

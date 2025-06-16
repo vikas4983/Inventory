@@ -15,12 +15,15 @@ class EditButton extends Component
     public $url;
     public $title;
     public $method = null;
-    public function __construct($objectData,$url,$title, $method)
+    public $modalSize = null;
+    
+    public function __construct($objectData,$url,$title, $method,$modalSize)
     {
         $this->objectData = $objectData;
         $this->url = $url;
         $this->title = $title;
         $this->method = $method;
+        $this->modalSize = $modalSize;
     }
 
     /**

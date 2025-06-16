@@ -58,7 +58,7 @@ class ProductController extends Controller
     {
         $objectdata = Product::findOrFail($product->id);
         $data = $staticData->staticData();
-        $editForm = view('forms.editForm', compact('objectdata', 'data'))->render();
+        $editForm = view('forms.edit.product', compact('objectdata', 'data'))->render();
 
         return response()->json([
             'action' => 'edit',
@@ -77,7 +77,7 @@ class ProductController extends Controller
             $Product = Product::where('id', $product->id)->first();
             $Product->update($validatedData);
             return response()->json([
-                'action' => 'status'
+                'action' => 'status',
             ]);
         } else {
             $Product = Product::where('id', $product->id)->first();

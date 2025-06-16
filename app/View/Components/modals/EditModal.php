@@ -14,11 +14,13 @@ class EditModal extends Component
     public $objectData;
     public $url;
     public $title;
-    public function __construct($objectData, $url,$title)
+    public $modalSize;
+    public function __construct($objectData, $url,$title,$modalSize)
     {
         $this->objectData = $objectData;
         $this->url = $url;
         $this->title = $title;
+        $this->modalSize = $modalSize;
     }
 
     /**

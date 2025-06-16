@@ -1,6 +1,6 @@
 <div class="modal fade" data-backdrop="static" data-keyboard="false" id="editModal-{{ $objectData->id }}" tabindex="-1" role="dialog"
     aria-labelledby="editModalLabel-{{ $objectData->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-{{$modalSize}}" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title w-100 text-center" id="editModalLabel-{{ $objectData->id }}">
