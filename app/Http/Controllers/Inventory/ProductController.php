@@ -73,6 +73,7 @@ class ProductController extends Controller
     {
 
         $validatedData = $request->validated();
+        
         if (isset($validatedData['is_active']) && count($validatedData) === 1) {
             $Product = Product::where('id', $product->id)->first();
             $Product->update($validatedData);

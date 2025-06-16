@@ -8,6 +8,7 @@ return [
     'cancel' => 'Cancel',
     'add_category' => 'Add Category',
     'add_product' => 'Add Product',
+    'add_supplier' => 'Add Supplier',
     
 ];
 

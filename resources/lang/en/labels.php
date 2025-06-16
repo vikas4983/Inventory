@@ -15,7 +15,6 @@ return [
     'brand_title' => 'Add Brand',
     'brand_placeholder' => 'Enter Brand Name',
     'brand_edit_modal' => '',
-    
     // Product
     'product_name' => 'Product Name',
     'product_name_placeholder' => 'Enter Product Name',
@@ -32,5 +31,17 @@ return [
     'product_description_placeholder' => 'Enter Product Descriptions',
     'product_list' => 'Products List',
     'product_edit_modal' => 'lg',
-   
+    // Supplier
+    'supplier_title' => ' Add Supplier',
+    'supplier_name' => ' Name',
+    'supplier_name_placeholder' => 'Enter Supplier Name',
+    'supplier_email' => ' Email',
+    'supplier_email_placeholder' => 'Enter Supplier Email',
+    'supplier_phone' => ' Phone',
+    'supplier_phone_placeholder' => 'Enter Supplier Phone',
+    'supplier_address' => ' Address',
+    'supplier_address_placeholder' => 'Enter Supplier Address',
+    'supplier_edit_modal' => 'lg',
+
+
 ];

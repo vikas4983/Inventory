@@ -41,7 +41,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
     <script src="{{ asset('assets/theme/plugins/nprogress/nprogress.js') }}"></script>
-     <style>
+    <style>
         #productsTable.table-hover tbody tr:hover {
             background-color: #F2F2F2 !important;
         }
@@ -186,6 +186,29 @@
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('products.create') }}">
+                                            <span class="nav-text">Create</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                data-target="#supplier" aria-expanded="false" aria-controls="supplier">
+                                <i class="mdi mdi-package-variant"></i>
+                                <span class="nav-text">Supplier</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="supplier" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('suppliers.index') }}">
+                                            <span class="nav-text">List</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('suppliers.create') }}">
                                             <span class="nav-text">Create</span>
 
                                         </a>
@@ -1226,6 +1249,16 @@
             hideMethod: 'fadeOut'
         };
     </script>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Email copied: " + text);
+            }).catch(() => {
+                alert("Failed to copy email.");
+            });
+        }
+    </script>
+
 
 </body>
 
