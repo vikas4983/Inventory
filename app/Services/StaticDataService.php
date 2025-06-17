@@ -16,7 +16,7 @@ class StaticDataService
         ];
         $data = [];
         foreach ($models as $key => $model) {
-            $data[$key] =  $model::query()->get();
+            $data[$key] =  $model::query()->where('is_active', 1)->get();
         }
         return $data;
     }
