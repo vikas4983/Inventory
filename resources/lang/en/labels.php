@@ -44,7 +44,7 @@ return [
     'supplier_edit_modal' => 'lg',
     // Status
     'status_name' => 'Status Name',
-    'status_name_placeholder' => 'Enter Status Name',
+     'status_name_placeholder' => 'Enter Status Name',
     'status_list' => 'Status List',
     'status_title' => 'Add Status',
     'status_edit_modal' => '',

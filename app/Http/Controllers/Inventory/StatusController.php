@@ -72,7 +72,6 @@ class StatusController extends Controller
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'action' => 'status',
-                'message' => 'Status updated successfully.',
             ]);
         }
         return redirect()->route('statuses.index')->with('success', __('messages.update_status'));
