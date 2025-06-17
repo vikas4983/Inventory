@@ -3,6 +3,7 @@
 use App\Http\Controllers\inventory\BrandController;
 use App\Http\Controllers\Inventory\CategoryController;
 use App\Http\Controllers\inventory\ProductController;
+use App\Http\Controllers\Inventory\PurchaseController;
 use App\Http\Controllers\inventory\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +23,6 @@ Route::middleware([
     Route::resource('products', ProductController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('suppliers', SupplierController::class);
+    Route::resource('purchases', PurchaseController::class);
     Route::post('delete', [CategoryController::class, 'destroy'])->name('delete');
 });
