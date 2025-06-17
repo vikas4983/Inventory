@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\StatusRequest;
+use App\Http\Requests\inventory\UpdateRequest;
 use App\Models\Inventory\Status;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class StatusController extends Controller
      */
     public function index()
     {
-        //
+        $statuses = Status::active()->get();
+        return view('statuses.index', compact('statuses'));
     }
 
     /**
@@ -52,7 +54,7 @@ class StatusController extends Controller
     public function edit(Status $status)
     {
         $objectdata = Status::findOrFail($status->id);
-         $editForm = view('forms.edit.status', compact('objectdata'))->render();
+        $editForm = view('forms.edit.status', compact('objectdata'))->render();
 
         return response()->json([
             'action' => 'edit',
@@ -63,9 +65,17 @@ class StatusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Status $status)
+    public function update(UpdateRequest $request, Status $status)
     {
-        //
+        $validatedData = $request->validated();
+        $status->update($validatedData);
+        if ($request->wantsJson() || $request->ajax()) {
+            return response()->json([
+                'action' => 'status',
+                'message' => 'Status updated successfully.',
+            ]);
+        }
+        return redirect()->route('statuses.index')->with('success', __('messages.update_status'));
     }
 
     /**
@@ -73,6 +83,9 @@ class StatusController extends Controller
      */
     public function destroy(Status $status)
     {
-        //
+        $status->destroy($status->id);
+        return response()->json([
+         'action' => 'delete'
+        ]);
     }
 }
