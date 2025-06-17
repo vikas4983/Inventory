@@ -4,6 +4,7 @@ namespace App\Http\Controllers\inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\inventory\BrandRequest;
+use App\Http\Requests\inventory\UpdateBrand;
 use App\Models\inventory\Brand;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand , StaticDataService $staticData )
+    public function edit(Brand $brand, StaticDataService $staticData)
     {
         $objectdata = Brand::findOrFail($brand->id);
         $data = $staticData->staticData();
@@ -60,21 +61,16 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BrandRequest $request, Brand $brand)
+    public function update(UpdateBrand $request, Brand $brand)
     {
         $validatedData = $request->validated();
-        dump($validatedData);
-        if ( isset($validatedData['name'])) {
-            $brand = Brand::where('id', $brand->id)->first();
-            $brand->update($validatedData);
-            return redirect()->route('brands.index')->with('success', 'Brand updated successfully!');
-        } else {
-            $brand = Brand::where('id', $brand->id)->first();
-            $brand->update($validatedData);
+        $brand->update($validatedData);
+        if ($request->wantsjson() || $request->ajax()) {
             return response()->json([
-                'action' => 'status'
+                'action' => 'status',
             ]);
         }
+        return redirect()->route('brands.index')->with('success', __('messages.update_brand'));
     }
 
     /**

@@ -27,7 +27,7 @@ class UpdateSupplier extends FormRequest
             'email' => ['sometimes', 'required', 'email', Rule::unique('suppliers', 'email')->ignore($this->supplier)],
             'phone' => ['sometimes', 'required', 'digits:10', Rule::unique('suppliers', 'phone')->ignore($this->supplier)],
             'address' => ['sometimes', 'required', 'string', 'max:255'],
-            'is_active' => ['sometimes', 'integer', 'in:0,1'],
+            'is_active' => ['sometimes','required', 'integer', 'in:0,1'],
         ];
     }
     public function messages(): array

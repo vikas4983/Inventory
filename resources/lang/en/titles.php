@@ -7,8 +7,10 @@ return [
     'update' => 'Update',
     'cancel' => 'Cancel',
     'add_category' => 'Add Category',
+    'add_brand' => 'Add Brand',
     'add_product' => 'Add Product',
     'add_supplier' => 'Add Supplier',
+    'add_status' => 'Add Status',
     
 ];
 

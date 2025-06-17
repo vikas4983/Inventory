@@ -4,6 +4,7 @@ namespace App\Http\Controllers\inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\inventory\ProductRequest;
+use App\Http\Requests\inventory\UpdateProduct;
 use App\Models\inventory\Product;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-       
+
         $validatedData = $request->validated();
         $validatedData['sku'] = 'PRD-' . strtoupper(Str::random(8));
         Product::create($validatedData);
@@ -69,22 +70,17 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(UpdateProduct $request, Product $product)
     {
 
         $validatedData = $request->validated();
-        
-        if (isset($validatedData['is_active']) && count($validatedData) === 1) {
-            $Product = Product::where('id', $product->id)->first();
-            $Product->update($validatedData);
+        $product->update($validatedData);
+        if ($request->wantsjson() || $request->ajax()) {
             return response()->json([
                 'action' => 'status',
             ]);
-        } else {
-            $Product = Product::where('id', $product->id)->first();
-            $Product->update($validatedData);
-            return redirect()->route('products.index')->with('success', 'Product updated successfully!');
         }
+        return redirect()->route('products.index')->with('success', __('messages.update_product'));
     }
 
     /**

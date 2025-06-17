@@ -5,7 +5,7 @@ namespace App\Http\Requests\inventory;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class BrandRequest extends FormRequest
+class UpdateBrand extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,13 @@ class BrandRequest extends FormRequest
     {
         return [
             'name' => [
+                'sometimes',
                 'required',
                 'string',
                 'max:255',
-               Rule::unique('brands')->ignore($this->brand ?? $this->id)
+                Rule::unique('brands')->ignore($this->brand ?? $this->id)
             ],
-            'is_active' => ['required', 'integer', 'in:0,1'],
+            'is_active' => ['sometimes', 'integer', 'in:0,1'],
         ];
     }
     public function messages(): array

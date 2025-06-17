@@ -24,14 +24,13 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => [
-                'sometimes',
                 'required',
                 'string',
                 'max:255',
                 'regex:/^[\pL\s]+$/u',
                 Rule::unique('categories')->ignore($this->category ?? $this->id)
             ],
-            'is_active' => ['sometimes', 'integer', 'in:0,1'],
+            'is_active' => ['required', 'integer', 'in:0,1'],
         ];
     }
     public function messages(): array

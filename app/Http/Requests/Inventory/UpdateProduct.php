@@ -3,9 +3,8 @@
 namespace App\Http\Requests\inventory;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class ProductRequest extends FormRequest
+class UpdateProduct extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

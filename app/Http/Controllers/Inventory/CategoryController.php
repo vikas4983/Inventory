@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\CategoryRequest;
+use App\Http\Requests\inventory\UpdateCategory;
 use App\Models\Inventory\Category;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;
@@ -63,21 +64,17 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest  $request, $id)
+    public function update(UpdateCategory  $request, Category $category)
     {
         $validatedData = $request->validated();
-        $category = Category::findOrFail($id);
-        if (isset($validatedData['name'])) {
-            $category = Category::where('id', $id)->first();
-            $category->update($validatedData);
-            return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
-        } else {
-            $category = Category::where('id', $id)->first();
-            $category->update($validatedData);
+        $category->update($validatedData);
+        if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
-                'action' => 'status'
+                'action' => 'status',
+                'message' => 'Status updated successfully.',
             ]);
         }
+        return redirect()->route('categories.index')->with('success', __('messages.update_category'));
     }
 
     /**

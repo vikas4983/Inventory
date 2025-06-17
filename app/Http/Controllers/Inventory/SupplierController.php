@@ -66,17 +66,13 @@ class SupplierController extends Controller
     public function update(UpdateSupplier $request, Supplier $supplier)
     {
         $validatedData = $request->validated();
-        if (isset($validatedData['is_active'])) {
-            $supplier = Supplier::where('id', $supplier->id)->first();
-            $supplier->update($validatedData);
+        $supplier->update($validatedData);
+        if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'action' => 'status',
             ]);
-        } else {
-            $Product = Supplier::where('id', $supplier->id)->first();
-            $Product->update($validatedData);
-            return redirect()->route('suppliers.index')->with('success', __('messages.update_supplier'));
         }
+        return redirect()->route('suppliers.index')->with('success', __('messages.update_supplier'));
     }
 
     /**
@@ -89,7 +85,6 @@ class SupplierController extends Controller
             return response()->json(
                 ['action' => 'delete']
             );
-        } else {
         }
     }
 }
