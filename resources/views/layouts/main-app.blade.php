@@ -239,6 +239,29 @@
                                 </div>
                             </ul>
                         </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                data-target="#purchase" aria-expanded="false" aria-controls="purchase">
+                                <i class="mdi mdi-cart"></i>
+                                <span class="nav-text">Purchase</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="purchase" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('purchases.index') }}">
+                                            <span class="nav-text">List</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('purchases.create') }}">
+                                            <span class="nav-text">Create</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
                         <li class="section-title">
                             UI Elements
                         </li>

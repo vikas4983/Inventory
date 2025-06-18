@@ -48,6 +48,15 @@ return [
     'status_list' => 'Status List',
     'status_title' => 'Add Status',
     'status_edit_modal' => '',
+    // Purchase
+    'purchase_name' => 'Supplier Name',
+    'purchase_status' => 'Purchase Status',
+    'purchase_date' => 'Purchase Date',
+    'purchase_total_placeholder' => 'Enter Purchase Quantity in Number',
+    'purchase_total' => 'Purchase Total Quantity',
+    'purchase_list' => 'Purchase List',
+    'purchase_title' => 'Add Purchase',
+    'purchase_edit_modal' => 'lg',
 
 
 ];

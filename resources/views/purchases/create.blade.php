@@ -1,62 +1,65 @@
 @extends('layouts.main-app')
-@section('title', 'Create Supplier')
+@section('title', 'Create Purchase')
 @section('content')
 
-    <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :parent-route="['name' => 'Suppliers', 'url' => route('suppliers.index')]" :current-route="['name' => 'Create', 'url' => null]" />
+    <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :parent-route="['name' => 'purchases', 'url' => route('purchases.index')]" :current-route="['name' => 'Create', 'url' => null]" />
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow">
                 <div class="card-body">
-                    @include('alerts.alert')
-                    <div class="text-center">
-                        <h3>{{ __('labels.supplier_title') }}</h3>
+                   <div class="text-center">
+                        <h3>{{ __('labels.purchase_title') }}</h3>
                     </div>
-                    <form action="{{ route('suppliers.store') }}" method="post">
+                      @include('alerts.alert')
+                    <form action="{{ route('purchases.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="form-group col-lg-4">
-                                <label for="name" class="font-weight-medium">{{ __('labels.supplier_name') }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    id="name" name="name" placeholder="{{ __('labels.supplier_name_placeholder') }}"
-                                    value="{{ old('name') }}" required>
-                                @error('name')
+                                <label for="supplier_id" class="font-weight-medium">{{ __('labels.purchase_name') }}</label>
+                                <select name="supplier_id" id="supplier_id" value="{{ old('supplier_id') }}"
+                                    class="form-control @error('supplier_id') is-invalid @enderror" required>
+                                    <option value="" selected disabled>Select Supplier</option>
+                                    @foreach ($data['suppliers'] as $supplier)
+                                        <option value="{{ $supplier->id ?? '' }}">{{ $supplier->name ?? '' }}</option>
+                                    @endforeach
+                                </select>
+                                @error('supplier_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group col-lg-4">
-                                <label for="email" class="font-weight-medium">{{ __('labels.supplier_email') }}</label>
-                                <input type="email" class="form-control @error('stock') is-invalid @enderror"
-                                    id="email" name="email"
-                                    placeholder="{{ __('labels.supplier_email_placeholder') }}" value="{{ old('email') }}"
-                                    required>
-                                @error('email')
+                                <label for="status_id" class="font-weight-medium">{{ __('labels.status') }}</label>
+                                <select name="status_id" id="status_id" value="{{ old('status_id') }}"
+                                    class="form-control @error('status_id') is-invalid @enderror" required>
+                                    <option selected disabled value="">Select Status</option>
+                                    @foreach ($data['statuses'] as $status)
+                                        <option value="{{ $status->id ?? '' }}">{{ $status->name ?? '' }}</option>
+                                    @endforeach
+                                </select>
+                                @error('status_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-lg-4">
+                                <label for="purchase_date" class="font-weight-medium">{{ __('labels.purchase_date') }}</label>
+                                <input type="date" class="form-control @error('purchase_date') is-invalid @enderror"
+                                    id="purchase_date" name="purchase_date" value="{{ old('date') }}" required>
+                                @error('purchase_date')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group col-lg-4">
-                                <label for="phone" class="font-weight-medium">{{ __('labels.supplier_phone') }}</label>
-                                <input type="number" class="form-control @error('phone') is-invalid @enderror"
-                                    id="phone" name="phone"
-                                    placeholder="{{ __('labels.supplier_phone_placeholder') }}"
-                                    value="{{ old('phone') }}" required>
-                                @error('phone')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label for="address"
-                                    class="font-weight-medium">{{ __('labels.supplier_address') }}</label>
-                                <input type="text" class="form-control @error('address') is-invalid @enderror"
-                                    id="address" name="address"
-                                    placeholder="{{ __('labels.supplier_address_placeholder') }}"
-                                    value="{{ old('address') }}" required>
-                                @error('address')
+                                <label for="total" class="font-weight-medium">{{ __('labels.purchase_total') }}</label>
+                                <input type="number" step="0.1" class="form-control @error('total') is-invalid @enderror"
+                                    id="total" name="total" value="{{ old('total') }}" placeholder="{{__('labels.purchase_total_placeholder')}}" required>
+                                @error('total')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -67,8 +70,7 @@
                                 <div class="switch-container">
                                     <label class="switch switch-text switch-primary switch-pill form-control-label">
                                         <input type="checkbox" name="is_active" id="is_active"
-                                            class="switch-input form-check-input" value="1"
-                                            {{ old('is_active', $objectData->is_active ?? 0) == 1 ? 'checked' : '' }}>
+                                            class="switch-input form-check-input" value="1">
                                         <span class="switch-label" data-on="ON" data-off="OFF"></span>
                                         <span class="switch-handle"></span>
                                     </label>
@@ -81,7 +83,7 @@
                             </div>
 
                         </div>
-                        <button type="submit" title="{{ __('titles.add_supplier') }}"
+                        <button type="submit" title="{{ __('titles.add_purchase') }}"
                             class="btn btn-primary">{{ __('buttons.create') }}</button>
                     </form>
                 </div>

@@ -82,8 +82,8 @@
                                                     <div style="display: flex; flex-wrap: nowrap; gap: 6px; mb-2">
                                                         <x-buttons.edit-button :objectData="$status" :url="route('statuses.edit', $status->id)"
                                                             :title="'status'" :method="'GET'" :modalSize="__('labels.status_edit_modal')" />
-                                                        <x-buttons.delete-button :objectData="$status" :url="route('statuses.destroy', $status->id)"
-                                                            :title="'status'" :method="'GET'" />
+                                                        {{-- <x-buttons.delete-button :objectData="$status" :url="route('statuses.destroy', $status->id)"
+                                                            :title="'status'" :method="'GET'" /> --}}
                                                     </div>
                                                 </td>
                                             </tr>

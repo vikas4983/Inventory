@@ -11,6 +11,7 @@ return [
     'add_product' => 'Add Product',
     'add_supplier' => 'Add Supplier',
     'add_status' => 'Add Status',
+    'add_purchase' => 'Add Purchase',
     
 ];
 

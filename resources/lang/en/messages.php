@@ -9,6 +9,7 @@ return [
     'create_product' => 'Product created successfuly',
     'create_supplier' => 'Supplier created successfuly',
     'create_status' => 'Status created successfuly',
+    'create_purchase' => 'Purchase created successfuly',
     // Update
     'update_category' => 'Category updated successfuly',
     'update_brand' => 'Brand updated successfuly',
@@ -21,5 +22,6 @@ return [
     'product_no_record' => 'Product record not found!',
     'supplier_no_record' => 'Supplier record not found!',
     'status_no_record' => 'Status record not found!',
+    'purchase_no_record' => 'Purchase record not found!',
 
 ];
