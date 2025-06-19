@@ -58,7 +58,7 @@
 
          <div class="form-group col-lg-4">
              <label for="cost_price" class="font-weight-medium">{{ __('labels.product_buy') }}</label>
-             <input type="number" step="0.01" class="form-control @error('cost_price') is-invalid @enderror"
+             <input type="number" step="0.01" min="0" class="form-control @error('cost_price') is-invalid @enderror"
                  id="cost_price" name="cost_price" placeholder="{{__('labels.product_buy_placeholder')}}"
                  value="{{ old('cost_price', $objectdata->cost_price ?? '') }}" required>
              @error('cost_price')
@@ -69,7 +69,7 @@
          </div>
          <div class="form-group col-lg-4">
              <label for="selling_price" class="font-weight-medium">{{ __('labels.product_sell') }}</label>
-             <input type="number" step="0.01" class="form-control @error('selling_price') is-invalid @enderror"
+             <input type="number" step="0.01" min="0" class="form-control @error('selling_price') is-invalid @enderror"
                  id="selling_price" name="selling_price" placeholder="{{__('labels.product_sell_placeholder')}}"
                  value="{{ old('selling_price', $objectdata->selling_price ?? '') }}" required>
              @error('selling_price')

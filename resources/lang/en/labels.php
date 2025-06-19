@@ -81,8 +81,8 @@ return [
     'purchase_item_list' => 'Purchase Item List',
     'purchase_item_title' => 'Add Purchase Item',
     'purchase_item_edit_modal' => 'lg',
-    // Purchase Item
-    'sale_user_id' => 'Customer',
+    // Sale Item
+    'sale_customer_id' => 'Customer',
     'sale_date' => 'Sale Date',
     'sale_total' => 'Total',
     'sale_total_placeholder' => 'Enter Sale in Number',

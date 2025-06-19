@@ -16,17 +16,17 @@
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label for="user_id"
-                                    class="font-weight-medium">{{ __('labels.sale_user_id') }}</label>
-                                <select name="user_id" id="user_id" value="{{ old('user_id') }}"
+                                    class="font-weight-medium">{{ __('labels.sale_customer_id') }}</label>
+                                <select name="customer_id" id="user_id" value="{{ old('user_id') }}"
                                     class="form-control @error('user_id') is-invalid @enderror" required>
                                     <option value="" selected disabled>Select Customer</option>
-                                    @foreach ($data['users'] as $user)
-                                        <option value="{{ $user->id }}">
-                                           {{ $user->name }}
+                                    @foreach ($data['customers'] as $customer)
+                                        <option value="{{ $customer->id }}">
+                                           {{ $customer->name }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('user_id')
+                                @error('customer_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

@@ -38,7 +38,7 @@
          </div>
          <div class="form-group col-lg-4">
              <label for="purchase_date" class="font-weight-medium">{{ __('labels.purchase_date') }}</label>
-             <input type="date" step="0.01" class="form-control @error('purchase_date') is-invalid @enderror"
+             <input type="date" step="0.01" min="0" class="form-control @error('purchase_date') is-invalid @enderror"
                  id="purchase_date" name="purchase_date" placeholder="{{ __('labels.purchase_total_placeholder') }}"
                  value="{{ old('purchase_date', $objectdata->purchase_date ?? '') }}" required>
              @error('purchase_date')
@@ -49,7 +49,7 @@
          </div>
          <div class="form-group col-lg-4">
              <label for="total" class="font-weight-medium">{{ __('labels.purchase_total') }}</label>
-             <input type="number" step="0.01" class="form-control @error('total') is-invalid @enderror"
+             <input type="number" step="0.01" min="0" class="form-control @error('total') is-invalid @enderror"
                  id="total" name="total" placeholder="{{ __('labels.purchase_total_placeholder') }}"
                  value="{{ old('total', $objectdata->total ?? '') }}" required>
              @error('total')

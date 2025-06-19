@@ -26,7 +26,7 @@
         </div>
         <div class="form-group col-lg-6">
             <label for="phone" class="font-weight-medium">{{ __('labels.customer_phone') }}</label>
-            <input type="number" step="0.01" class="form-control @error('phone') is-invalid @enderror"
+            <input type="number" step="0.01" min="0" class="form-control @error('phone') is-invalid @enderror"
                 id="phone" name="phone" placeholder="{{ __('labels.customer_phone_placeholder') }}"
                 value="{{ old('phone', $objectdata->phone ?? '') }}" required>
             @error('phone')
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group col-lg-6">
             <label for="address" class="font-weight-medium">{{ __('labels.customer_address') }}</label>
-            <input type="text" step="0.01" class="form-control @error('address') is-invalid @enderror"
+            <input type="text" step="0.01" min="0" class="form-control @error('address') is-invalid @enderror"
                 id="address" name="address" placeholder="{{ __('labels.customer_address_placeholder') }}"
                 value="{{ old('address', $objectdata->address ?? '') }}" required>
             @error('address')

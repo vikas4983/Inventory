@@ -48,7 +48,7 @@
          </div>
          <div class="form-group col-lg-4">
              <label for="price" class="font-weight-medium">{{ __('labels.purchase_item_price') }}</label>
-             <input type="number" step="0.1" class="form-control @error('price') is-invalid @enderror"
+             <input type="number" step="0.1" min="0" class="form-control @error('price') is-invalid @enderror"
                  id="price" name="price" value="{{old('price', $objectdata->price ?? '')}}"
                  placeholder="{{ __('labels.purchase_item_price_placeholder') }}" required>
              @error('price')

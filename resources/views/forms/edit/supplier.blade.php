@@ -26,7 +26,7 @@
         </div>
         <div class="form-group col-lg-6">
             <label for="phone" class="font-weight-medium">{{ __('labels.supplier_phone') }}</label>
-            <input type="number" step="0.01" class="form-control @error('phone') is-invalid @enderror"
+            <input type="number" step="0.01" min="0" class="form-control @error('phone') is-invalid @enderror"
                 id="phone" name="phone" placeholder="{{ __('labels.supplier_phone_placeholder') }}"
                 value="{{ old('phone', $objectdata->phone ?? '') }}" required>
             @error('phone')
