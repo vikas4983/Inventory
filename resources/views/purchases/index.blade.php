@@ -5,7 +5,7 @@
     <x-breadcrumb :home-route="['name' => 'Home', 'url' => route('dashboard')]" :current-route="['name' => 'Purchases', 'url' => null]" />
     <a href="{{ route('purchases.create') }}" title="{{ __('titles.add_purchase') }}"
         class="btn btn-secondary">{{ __('buttons.add_new_purchase') }}</a>
-    <span >@include('alerts.alert')</span>
+    <span>@include('alerts.alert')</span>
     <table id="productsTable" class="table table-hover table-product" style="width:100%">
         <thead>
             <tr>
@@ -32,17 +32,17 @@
                     </td>
                     <td> <x-buttons.switch-button :url="route('purchases.update', $purchase->id)" :method="'PATCH'" :objectData="$purchase->is_active" /></button>
                     </td>
-                    <td>{{ Str::limit($purchase->supplier_id, 20) ?? '' }}</td>
-                    <td>{{ Str::limit($purchase->status_id, 20) ?? '' }}</td>
+                    <td>{{ Str::limit($purchase->supplier->name, 20) ?? '' }}</td>
+                    <td>{{ Str::limit($purchase->status->name, 20) ?? '' }}</td>
                     <td>{{ Str::limit($purchase->purchase_date, 20) ?? '' }}</td>
                     <td>{{ Str::limit($purchase->total, 20) ?? '' }}</td>
-                  
+
 
                 </tr>
             @empty
                 <tr>
                     <td colspan="12" class="text-center">
-                        <h5 style="color:red">{{__('messages.purchase_no_record')}}</h5>
+                        <h5 style="color:red">{{ __('messages.purchase_no_record') }}</h5>
                     </td>
                 </tr>
             @endforelse
