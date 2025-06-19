@@ -67,7 +67,7 @@ class SupplierController extends Controller
     {
         $validatedData = $request->validated();
         $supplier->update($validatedData);
-        if ($request->wantsJson() || $request->ajax()) {
+         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'action' => 'status',
             ]);

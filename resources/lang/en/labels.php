@@ -57,6 +57,19 @@ return [
     'purchase_list' => 'Purchase List',
     'purchase_title' => 'Add Purchase',
     'purchase_edit_modal' => 'lg',
+    // Purchase Item
+    'purchase_item_purchase_id' => 'Purchase',
+     'purchase_item_purchase_date' => 'Purchase Date',
+    'purchase_item_supplier' => 'Supplier',
+    'purchase_item_product_id' => 'Product',
+    'purchase_item_quantity' => 'Quantity ',
+    'purchase_item_price' => 'Price ',
+    'purchase_item_total' => 'Total ',
+    'purchase_item_quantity_placeholder' => 'Enter Purchase Item Quantity',
+    'purchase_item_price_placeholder' => 'Enter Purchase Item Price',
+    'purchase_item_list' => 'Purchase Item List',
+    'purchase_item_title' => 'Add Purchase Item',
+    'purchase_item_edit_modal' => 'lg',
 
 
 ];
