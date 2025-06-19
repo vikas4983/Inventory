@@ -7,6 +7,7 @@ use App\Http\Controllers\inventory\ProductController;
 use App\Http\Controllers\Inventory\PurchaseController;
 use App\Http\Controllers\Inventory\PurchaseItemController;
 use App\Http\Controllers\Inventory\SaleController;
+use App\Http\Controllers\Inventory\SaleItemController;
 use App\Http\Controllers\Inventory\StatusController;
 use App\Http\Controllers\inventory\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,6 @@ Route::middleware([
     Route::resource('statuses', StatusController::class);
     Route::resource('purchaseItems', PurchaseItemController::class);
     Route::resource('sales', SaleController::class);
+    Route::resource('saleItems', SaleItemController::class);
     Route::post('delete', [CategoryController::class, 'destroy'])->name('delete');
 });
-`

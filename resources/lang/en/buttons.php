@@ -13,5 +13,6 @@ return [
     'add_new_purchase' => 'Add New Purchase',
     'add_new_purchase_item' => 'Add New Purchase Item',
     'add_new_sale' => 'Add New Sale',
+     'add_new_sale_item' => 'Add New Sale Item',
 
 ];

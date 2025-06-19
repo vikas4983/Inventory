@@ -7,9 +7,9 @@ use App\Models\Inventory\Brand;
 use App\Models\Inventory\Customer;
 use App\Models\inventory\Product;
 use App\Models\Inventory\Purchase;
+use App\Models\Inventory\Sale;
 use App\Models\Inventory\Status;
 use App\Models\inventory\Supplier;
-use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 
 class StaticDataService
@@ -24,6 +24,7 @@ class StaticDataService
             'purchases' => Purchase::class,
             'products' => Product::class,
             'customers' => Customer::class,
+            'sales' => Sale::class,
             
         ];
         $data = [];

@@ -12,7 +12,8 @@ return [
     'create_purchase' => 'Purchase created successfuly',
     'create_purchase_item' => 'Purchase item created successfuly',
     'create_sale' => ' Sale created successfuly',
-    'create_customer' => ' Customer created successfuly',
+    'create_sale_item' => ' Customer created successfuly',
+    'create_sale_item' => ' Sale item created successfuly',
     // Update
     'update_category' => 'Category updated successfuly',
     'update_brand' => 'Brand updated successfuly',
@@ -22,6 +23,7 @@ return [
     'update_purchase_item' => 'Purchase item updated successfuly',
     'update_sale' => ' Sale updated successfuly',
     'update_customer' => ' Customer updated successfuly',
+    'update_sale_item' => ' Sale item updated successfuly',
     // General
     'category_no_record' => 'Category record not found!',
     'brand_no_record' => 'Brand record not found!',
@@ -32,5 +34,6 @@ return [
     'purchase_item_no_record' => 'Purchase item record not found!',
     'sale_no_record' => 'Sale record not found!',
     'customer_no_record' => 'Customer record not found!',
+    'sale_item_no_record' => 'Sale item record not found!',
 
 ];

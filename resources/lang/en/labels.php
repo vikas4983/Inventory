@@ -70,7 +70,7 @@ return [
     'purchase_edit_modal' => 'lg',
     // Purchase Item
     'purchase_item_purchase_id' => 'Purchase',
-     'purchase_item_purchase_date' => 'Purchase Date',
+    'purchase_item_purchase_date' => 'Purchase Date',
     'purchase_item_supplier' => 'Supplier',
     'purchase_item_product_id' => 'Product',
     'purchase_item_quantity' => 'Quantity ',
@@ -89,6 +89,18 @@ return [
     'sale_list' => 'Sale List',
     'sale_title' => 'Add Sale',
     'sale_edit_modal' => 'lg',
+    // Sale Item
+    'sale_item_sale_id' => 'Saller',
+    'sale_item_sale_date' => 'Sale Date',
+    'sale_item_product_id' => 'Product',
+    'sale_item_quantity' => 'Quantity ',
+    'sale_item_price' => 'Price ',
+    'sale_item_total' => 'Total ',
+    'sale_item_quantity_placeholder' => 'Enter Sale Item Quantity',
+    'sale_item_price_placeholder' => 'Enter Sale Item Price',
+    'sale_item_list' => 'Sale Item List',
+    'sale_item_title' => 'Add Sale Item',
+    'sale_item_edit_modal' => 'lg',
 
 
 ];
