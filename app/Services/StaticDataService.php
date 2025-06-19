@@ -8,6 +8,7 @@ use App\Models\inventory\Product;
 use App\Models\Inventory\Purchase;
 use App\Models\Inventory\Status;
 use App\Models\inventory\Supplier;
+use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 
 class StaticDataService
@@ -21,6 +22,7 @@ class StaticDataService
             'statuses' => Status::class,
             'purchases' => Purchase::class,
             'products' => Product::class,
+            
         ];
         $data = [];
         foreach ($models as $key => $model) {

@@ -265,7 +265,7 @@
                         <li class="has-sub">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#purchase_item" aria-expanded="false" aria-controls="purchase_item">
-                                <i class="mdi mdi-cart"></i>
+                                <i class="mdi mdi-cart-plus"></i>
                                 <span class="nav-text">Purchase Item</span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="purchase_item" data-parent="#sidebar-menu">
@@ -278,6 +278,29 @@
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('purchaseItems.create') }}">
+                                            <span class="nav-text">Create</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                data-target="#sale" aria-expanded="false" aria-controls="sale">
+                                <i class="mdi mdi-chart-line"></i>
+                                <span class="nav-text">Sale</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="sale" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('sales.index') }}">
+                                            <span class="nav-text">List</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('sales.create') }}">
                                             <span class="nav-text">Create</span>
 
                                         </a>

@@ -13,6 +13,7 @@ return [
     'add_status' => 'Add Status',
     'add_purchase' => 'Add Purchase',
     'add_purchase_item' => 'Add Purchase',
+    'add_sale' => 'Add Sale',
     
 ];
 
