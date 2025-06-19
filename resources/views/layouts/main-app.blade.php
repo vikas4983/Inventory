@@ -218,6 +218,29 @@
                         </li>
                         <li class="has-sub">
                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                data-target="#customer" aria-expanded="false" aria-controls="customer">
+                                <i class="mdi mdi-account-multiple"></i>
+                                <span class="nav-text">Customer</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="customer" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('customers.index') }}">
+                                            <span class="nav-text">List</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ route('customers.create') }}">
+                                            <span class="nav-text">Create</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                 data-target="#status" aria-expanded="false" aria-controls="status">
                                 <i class="mdi mdi-clock-outline"></i>
                                 <span class="nav-text">Status</span> <b class="caret"></b>
@@ -308,6 +331,7 @@
                                 </div>
                             </ul>
                         </li>
+                        
                         <li class="section-title">
                             UI Elements
                         </li>

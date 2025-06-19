@@ -42,6 +42,17 @@ return [
     'supplier_address' => ' Address',
     'supplier_address_placeholder' => 'Enter Supplier Address',
     'supplier_edit_modal' => 'lg',
+    // Customer
+    'customer_title' => ' Add Customer',
+    'customer_name' => ' Name',
+    'customer_name_placeholder' => 'Enter Customer Name',
+    'customer_email' => ' Email',
+    'customer_email_placeholder' => 'Enter Customer Email',
+    'customer_phone' => ' Phone',
+    'customer_phone_placeholder' => 'Enter Customer Phone',
+    'customer_address' => ' Address',
+    'customer_address_placeholder' => 'Enter Customer Address',
+    'customer_edit_modal' => 'lg',
     // Status
     'status_name' => 'Status Name',
     'status_name_placeholder' => 'Enter Status Name',

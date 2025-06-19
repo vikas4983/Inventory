@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\inventory\BrandController;
 use App\Http\Controllers\Inventory\CategoryController;
+use App\Http\Controllers\Inventory\CustomerController;
 use App\Http\Controllers\inventory\ProductController;
 use App\Http\Controllers\Inventory\PurchaseController;
 use App\Http\Controllers\Inventory\PurchaseItemController;
@@ -26,9 +27,11 @@ Route::middleware([
     Route::resource('products', ProductController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('suppliers', SupplierController::class);
+    Route::resource('customers', CustomerController::class);
     Route::resource('purchases', PurchaseController::class);
     Route::resource('statuses', StatusController::class);
     Route::resource('purchaseItems', PurchaseItemController::class);
     Route::resource('sales', SaleController::class);
     Route::post('delete', [CategoryController::class, 'destroy'])->name('delete');
 });
+`

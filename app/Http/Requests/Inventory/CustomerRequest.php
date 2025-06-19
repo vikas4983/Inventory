@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\inventory;
+namespace App\Http\Requests\Inventory;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class SupplierRequest extends FormRequest
+class CustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +24,8 @@ class SupplierRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255',],
-            'email' => ['required', 'email', 'unique:suppliers,email'],
-            'phone' => ['required', 'digits:10', 'unique:suppliers,phone'],
+            'email' => ['required', 'email',  Rule::unique('customers', 'email')->ignore($this->customer ?? $this->id)],
+            'phone' => ['required', 'digits:10',  Rule::unique('customers', 'phone')->ignore($this->customer ?? $this->id)],
             'address' => ['required', 'string', 'max:255'],
             'is_active' => ['sometimes', 'integer', 'in:0,1'],
         ];
@@ -32,9 +33,9 @@ class SupplierRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'The supplier name field is required.',
-            'name.string' => 'The supplier name must be a string.',
-            'name.max' => 'The supplier name may not be greater than 255 characters.',
+            'name.required' => 'The customer name field is required.',
+            'name.string' => 'The customer name must be a string.',
+            'name.max' => 'The customer name may not be greater than 255 characters.',
 
             'email.required' => 'The email field is required.',
             'email.unique' => 'The email must be a unique.',

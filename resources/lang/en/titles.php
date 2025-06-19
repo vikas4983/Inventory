@@ -14,6 +14,7 @@ return [
     'add_purchase' => 'Add Purchase',
     'add_purchase_item' => 'Add Purchase',
     'add_sale' => 'Add Sale',
+    'add_customer' => 'Add Customer',
     
 ];
 
