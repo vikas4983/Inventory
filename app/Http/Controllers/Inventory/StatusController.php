@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\StatusRequest;
-use App\Http\Requests\inventory\UpdateRequest;
+use App\Http\Requests\Inventory\UpdateRequest;
 use App\Models\Inventory\Status;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;

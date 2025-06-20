@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\inventory;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\inventory\ProductRequest;
-use App\Http\Requests\inventory\UpdateProduct;
+use App\Http\Requests\Inventory\ProductRequest;
+use App\Http\Requests\Inventory\UpdateProduct;
 use App\Models\inventory\Product;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;

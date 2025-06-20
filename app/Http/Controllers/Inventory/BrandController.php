@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\inventory;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\inventory\BrandRequest;
-use App\Http\Requests\inventory\UpdateBrand;
+use App\Http\Requests\Inventory\BrandRequest;
+use App\Http\Requests\Inventory\UpdateBrand;
 use App\Models\inventory\Brand;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;

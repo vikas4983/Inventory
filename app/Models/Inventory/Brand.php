@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\inventory;
+namespace App\Models\Inventory;
 
 use Illuminate\Container\Attributes\Cache;
 use Illuminate\Database\Eloquent\Model;
