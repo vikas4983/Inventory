@@ -1,15 +1,15 @@
 <?php
 
-use App\Http\Controllers\inventory\BrandController;
+use App\Http\Controllers\Inventory\BrandController;
 use App\Http\Controllers\Inventory\CategoryController;
 use App\Http\Controllers\Inventory\CustomerController;
-use App\Http\Controllers\inventory\ProductController;
+use App\Http\Controllers\Inventory\ProductController;
 use App\Http\Controllers\Inventory\PurchaseController;
 use App\Http\Controllers\Inventory\PurchaseItemController;
 use App\Http\Controllers\Inventory\SaleController;
 use App\Http\Controllers\Inventory\SaleItemController;
 use App\Http\Controllers\Inventory\StatusController;
-use App\Http\Controllers\inventory\SupplierController;
+use App\Http\Controllers\Inventory\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
