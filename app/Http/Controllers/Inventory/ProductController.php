@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\inventory;
+namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\ProductRequest;
 use App\Http\Requests\Inventory\UpdateProduct;
-use App\Models\inventory\Product;
+use App\Models\Inventory\Product;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

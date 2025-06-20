@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\PurchaseRequest;
-use App\Http\Requests\inventory\UpdatePurchase;
+use App\Http\Requests\Inventory\UpdatePurchase;
 use App\Models\Inventory\Purchase;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;

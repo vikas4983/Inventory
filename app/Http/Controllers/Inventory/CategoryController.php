@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\CategoryRequest;
-use App\Http\Requests\inventory\UpdateCategory;
+use App\Http\Requests\Inventory\UpdateCategory;
 use App\Models\Inventory\Category;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;

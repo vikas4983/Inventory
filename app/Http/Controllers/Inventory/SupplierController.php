@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\inventory;
+namespace App\Http\Controllers\Inventory;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\SupplierRequest;
 use App\Http\Requests\Inventory\UpdateSupplier;
-use App\Models\inventory\Supplier;
+use App\Models\Inventory\Supplier;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;
 

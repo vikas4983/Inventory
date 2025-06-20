@@ -2,7 +2,7 @@
 
 namespace App\Models\Inventory;
 
-use App\Models\inventory\Supplier;
+use App\Models\Inventory\Supplier;
 use Illuminate\Database\Eloquent\Model;
 
 class Purchase extends Model
