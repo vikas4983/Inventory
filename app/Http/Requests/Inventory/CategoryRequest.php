@@ -30,7 +30,7 @@ class CategoryRequest extends FormRequest
                 'regex:/^[\pL\s]+$/u',
                 Rule::unique('categories')->ignore($this->category ?? $this->id)
             ],
-            'is_active' => ['required', 'integer', 'in:0,1'],
+            'is_active' => ['sometimes', 'integer', 'in:0,1'],
         ];
     }
     public function messages(): array

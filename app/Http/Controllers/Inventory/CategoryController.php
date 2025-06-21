@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Inventory\CategoryRequest;
 use App\Http\Requests\Inventory\UpdateCategory;
 use App\Models\Inventory\Category;
+use App\Services\ModelCountService;
 use App\Services\StaticDataService;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,9 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(ModelCountService $modelCount)
+    {   
+        
         $categories = Category::active()->latest()->get();
         return view('categories.index', compact('categories'));
     }

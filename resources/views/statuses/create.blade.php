@@ -16,28 +16,28 @@
                         <div class="form-group">
                             <label for="name" class="font-weight-medium">{{ __('labels.status_name') }}</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                name="name" placeholder="{{ __('labels.status_name_placeholder') }}" value="{{ old('name') }}" required>
+                                name="name" placeholder="{{ __('labels.status_name_placeholder') }}"
+                                value="{{ old('name') }}" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <div class="form-group mt-5">
-                                <div class="d-flex align-items-center">
-                                    <label class="font-weight-medium mb-0 mr-3">Status</label>
-
-                                    <div class="form-check form-check-inline mr-3">
-                                        <input class="form-check-input" type="radio" name="is_active" id="statusActive"
-                                            value="1" checked>
-                                        <label class="form-check-label" for="statusActive">Active</label>
-                                    </div>
-
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="is_active" id="statusInactive"
-                                            value="0">
-                                        <label class="form-check-label" for="statusInactive">Inactive</label>
-                                    </div>
+                            <div class="form-group col-lg-6 mt-5  d-flex justify-content-between align-items-right">
+                                <label for="is_active" class="font-weight-medium mb-0">{{ __('labels.status') }}</label>
+                                <div class="switch-container">
+                                    <label class="switch switch-text switch-primary switch-pill form-control-label">
+                                        <input type="checkbox" name="is_active" id="is_active"
+                                            class="switch-input form-check-input" value="1">
+                                        <span class="switch-label" data-on="ON" data-off="OFF"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
                                 </div>
+                                @error('is_active')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <button type="submit" title="{{ __('titles.create') }}"
@@ -64,10 +64,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{__('labels.status_name')}}</th>
-                                        <th>{{__('labels.status')}}</th>
-                                        <th>{{__('labels.action')}}</th>
-                                      
+                                        <th>{{ __('labels.status_name') }}</th>
+                                        <th>{{ __('labels.status') }}</th>
+                                        <th>{{ __('labels.action') }}</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -91,7 +91,7 @@
                                     @else
                                         <tr>
                                             <td colspan="4" class="text-center">
-                                                <h5 style="color:red">{{__('messages.status_no_record')}}</h5>
+                                                <h5 style="color:red">{{ __('messages.status_no_record') }}</h5>
                                             </td>
                                         </tr>
                                     @endif

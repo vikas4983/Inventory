@@ -25,7 +25,7 @@ class StaticDataService
             'products' => Product::class,
             'customers' => Customer::class,
             'sales' => Sale::class,
-            
+
         ];
         $data = [];
         foreach ($models as $key => $model) {

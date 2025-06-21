@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Providers;
 
 use App\Services\ModelCountService;
@@ -12,8 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton('model_counts', function (){
-          return new ModelCountService();
+        $this->app->bind('model_counts', function () {
+            return new ModelCountService();
         });
     }
 
