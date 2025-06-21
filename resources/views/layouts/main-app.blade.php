@@ -124,7 +124,7 @@
                                 data-target="#brand" aria-expanded="false" aria-controls="brand">
                                 <i class="mdi mdi-label"></i>
                                 <span class="nav-text">Brand <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Brands'] }}
+                                        {{ model_counts()['Brands'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="brand" data-parent="#sidebar-menu">
@@ -149,7 +149,7 @@
                                 data-target="#product" aria-expanded="false" aria-controls="product">
                                 <i class="mdi mdi-palette"></i>
                                 <span class="nav-text">Product <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Products'] }}
+                                        {{ model_counts()['Products'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="product" data-parent="#sidebar-menu">
@@ -174,7 +174,7 @@
                                 data-target="#supplier" aria-expanded="false" aria-controls="supplier">
                                 <i class="mdi mdi-package-variant"></i>
                                 <span class="nav-text">Supplier <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Suppliers'] }}
+                                        {{ model_counts()['Suppliers'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="supplier" data-parent="#sidebar-menu">
@@ -199,7 +199,7 @@
                                 data-target="#customer" aria-expanded="false" aria-controls="customer">
                                 <i class="mdi mdi-account-multiple"></i>
                                 <span class="nav-text">Customer <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Customers'] }}
+                                        {{ model_counts()['Customers'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="customer" data-parent="#sidebar-menu">
@@ -224,7 +224,7 @@
                                 data-target="#status" aria-expanded="false" aria-controls="status">
                                 <i class="mdi mdi-clock-outline"></i>
                                 <span class="nav-text">Status <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Statuses'] }}
+                                        {{ model_counts()['Statuses'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="status" data-parent="#sidebar-menu">
@@ -249,7 +249,7 @@
                                 data-target="#purchase" aria-expanded="false" aria-controls="purchase">
                                 <i class="mdi mdi-cart"></i>
                                 <span class="nav-text">Purchase <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Purchases'] }}
+                                        {{ model_counts()['Purchases'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="purchase" data-parent="#sidebar-menu">
@@ -274,7 +274,7 @@
                                 data-target="#purchase_item" aria-expanded="false" aria-controls="purchase_item">
                                 <i class="mdi mdi-cart-plus"></i>
                                 <span class="nav-text">Purchase Item <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['PurchaseItems'] }}
+                                        {{ model_counts()['PurchaseItems'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="purchase_item" data-parent="#sidebar-menu">
@@ -299,7 +299,7 @@
                                 data-target="#sale" aria-expanded="false" aria-controls="sale">
                                 <i class="mdi mdi-chart-line"></i>
                                 <span class="nav-text">Sale <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['Sales'] }}
+                                        {{ model_counts()['Sales'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="sale" data-parent="#sidebar-menu">
@@ -324,7 +324,7 @@
                                 data-target="#saleItem" aria-expanded="false" aria-controls="saleItem">
                                 <i class="mdi mdi-cart-plus"></i>
                                 <span class="nav-text">Sale Item <h5 class="badge badge-primary badge-pill">
-                                         {{ model_counts()['SaleItems'] }}
+                                        {{ model_counts()['SaleItems'] }}
                                     </h5></span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="saleItem" data-parent="#sidebar-menu">
@@ -377,11 +377,18 @@
 
                             <li class="dropdown user-menu">
                                 <button class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <img src="{{ asset('storage/banners/default_image.png') }}"
+                                    <img src="{{ Auth::user()->profile_photo_path
+                                        ? asset('storage/' . Auth::user()->profile_photo_path)
+                                        : asset('storage/profile-photos/default_image_male.png') }}"
                                         class="user-image rounded-circle" alt="User Image" />
                                     <span class="d-none d-lg-inline-block">{{ Auth::user()->name ?? '' }}</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-footer">
+                                        <a id="profile" class="dropdown-link-item"
+                                            href="  {{ url('user/profile') }}">
+                                            <i class="mdi mdi-profile"></i> My Profile </a>
+                                    </li>
                                     <li class="dropdown-footer">
                                         <a id="logout" class="dropdown-link-item" href="{{ route('logout') }}">
                                             <i class="mdi mdi-logout"></i> Log Out </a>
